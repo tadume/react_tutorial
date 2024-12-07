@@ -1,9 +1,10 @@
 import { memo } from 'react';
 
-export const Page1 = memo(() => {
+export const Page1 = memo((props) => {
+  const { allowexecution } = props;
   console.log('-----Page1------');
 
-  // 再レンダリングする必要のないコンポーネントなのに、App.jsxでstateを更新した際にこちらも更新されている。。
-  // メモ化したことで最初の一回しか再レンダリングされなくなった!!!!
-  return <h2>Page1です。</h2>;
+  // アロー関数をもらっているが、関数の中身も最初に定義した後は変わらないため、再レンダリング不要としたい。
+  // memo化しても、アロー関数は再レンダリング時に、新規に定義されてしまうので、際レンダリングが起きてしまう。。
+  return <button onClick={allowexecution}>Page1のボタン</button>;
 });
