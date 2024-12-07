@@ -1,10 +1,19 @@
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 
-export const Page1 = memo((props) => {
-  const { allowexecution } = props;
-  console.log('-----Page1------');
+export const Home = memo(() => {
+  console.log('-----Home------');
 
-  // アロー関数をもらっているが、関数の中身も最初に定義した後は変わらないため、再レンダリング不要としたい。
-  // memo化しても、アロー関数は再レンダリング時に、新規に定義されてしまうので、際レンダリングが起きてしまう。。
-  return <button onClick={allowexecution}>Page1のボタン</button>;
+  return (
+    <>
+      <h1>Home画面</h1>
+      {/* 実施に遷移するために、リンクを記載する */}
+      <div>
+        <Link to="/page1">Page1に遷移</Link>
+      </div>
+      <div>
+        <Link to="/page2">Page2に遷移</Link>
+      </div>
+    </>
+  );
 });
