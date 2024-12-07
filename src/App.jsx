@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+export const App = () => {
+  // インラインスタイル用のオブジェクトを作成
+  const worldStle = {
+    fontSize: 15,
+    color: 'blue',
+  };
 
-function App() {
+  // イベント関数を作成
+  const alertEvent = () => alert('初めてのイベント');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 style={{ fontSize: 30, color: 'red' }}>Hello</h1>
+      <h1 style={worldStle}>World</h1>
+      <button onClick={alertEvent}>クリック</button>
+    </>
   );
-}
-
-export default App;
+};

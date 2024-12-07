@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import App from './App';
+import { App } from './App';
 
 // index.htmlからID属性rootの要素をDOM操作で取得する
 const rootElement = document.getElementById('root');
