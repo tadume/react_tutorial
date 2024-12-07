@@ -1,36 +1,47 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const App = (props) => {
-  // stateを定義
+  const [isShowFace, setIsShowFace] = useState(false);
   const [num, setNum] = useState(0);
+  // console.log('------App-------');
 
-  // オブジェクトの分割代入
-  // 初期値を持たせる
-  const { color = 'black', children } = props;
-  // インラインスタイル用のオブジェクトを作成
-  const worldStyle = {
-    fontSize: 15,
-    //keyとvalueの変数名が同じである場合、省略できるんだった
-    color,
+  // イベントでisShowFaceの値を更新しても、再レンダリングで、ここが使用されるため、結局数字でしか顔文字が表示できなくなっている。
+  // if (num > 0) {
+  //   if (num % 3 === 0) {
+  //     isShowFace || setIsShowFace(true);
+  //   } else {
+  //     isShowFace && setIsShowFace(false);
+  //   }
+  // }
+
+  // 上記を改善。
+  // useEffectにより、上記処理が再レンダリングされるケースを制限する。
+  // 数字が更新された時だけで良いので、 第二引数に、 numを与える
+  useEffect(() => {
+    if (num > 0) {
+      if (num % 3 === 0) {
+        isShowFace || setIsShowFace(true);
+      } else {
+        isShowFace && setIsShowFace(false);
+      }
+    }
+  }, [num]);
+
+  const onOffIsShowFace = () => {
+    console.log('on/off');
+    setIsShowFace(!isShowFace);
   };
-
-  // stateの更新イベント
-  // const plusNum = () => setNum(num + 1);
-
-  // Reactがstateをバッチ化していることを確認
-  const testPlusNum = () => {
-    // 1回しか実行されない(最後に実行されるstateの更新のみが行われる!!)
-    console.log('state更新');
-    setNum(num + 1);
-    setNum(num + 1); // これだけ実行される
-  };
+  const plusNum = () => setNum(num + 1);
 
   return (
     <>
-      <h1 style={{ fontSize: 30, color: 'red' }}>Hello</h1>
-      <h1 style={worldStyle}>{children}</h1>
-      <button onClick={testPlusNum}>クリック!</button>
-      <div style={{ textAlign: 'center', fontSize: 20 }}>{num}</div>
+      <button onClick={onOffIsShowFace}>On/Off</button>
+      <div style={{ textAlign: 'center', fontSize: 30 }}>
+        {isShowFace && <p>(^^;)</p>}
+      </div>
+      <hr />
+      <button onClick={plusNum}>CountUp</button>
+      <div style={{ textAlign: 'center', fontSize: 30 }}>{num}</div>
     </>
   );
 };
