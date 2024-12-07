@@ -10,6 +10,7 @@ const root = createRoot(rootElement);
 root.render(
   <>
     {/* tsx または jsx にしないと、コンポーネントと判断されないので、自動インポートができない!!! */}
-    <App />
+    <App color="green">こんにちは!</App>
+    <App>こんにちは!2</App>
   </>,
 );

@@ -1,8 +1,12 @@
-export const App = () => {
+export const App = (props) => {
+  // オブジェクトの分割代入
+  // 初期値を持たせる
+  const { color = 'black', children } = props;
   // インラインスタイル用のオブジェクトを作成
-  const worldStle = {
+  const worldStyle = {
     fontSize: 15,
-    color: 'blue',
+    //keyとvalueの変数名が同じである場合、省略できるんだった
+    color,
   };
 
   // イベント関数を作成
@@ -11,7 +15,7 @@ export const App = () => {
   return (
     <>
       <h1 style={{ fontSize: 30, color: 'red' }}>Hello</h1>
-      <h1 style={worldStle}>World</h1>
+      <h1 style={worldStyle}>{children}</h1>
       <button onClick={alertEvent}>クリック</button>
     </>
   );
