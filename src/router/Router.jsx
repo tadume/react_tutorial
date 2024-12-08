@@ -17,7 +17,7 @@ export const Router = memo(() => {
             <Route key={url.path} path={url.path} element={url.element} />
           ))}
         </Route>
-        <Route path="/page2" element={<Page2 />} />
+        <Route path="/page2/:id" element={<Page2 />} />
       </Routes>
     </BrowserRouter>
   );
