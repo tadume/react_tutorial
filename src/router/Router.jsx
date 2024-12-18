@@ -6,6 +6,7 @@ import { Page1 } from '../Page1';
 import { Page2 } from '../Page2';
 import { StateParameter } from '../StateParameter';
 import { NextPage } from '../NextPage';
+import { Page404 } from '../Page404';
 
 export const Router = memo(() => {
   return (
@@ -22,6 +23,7 @@ export const Router = memo(() => {
         <Route path="/page2/:id" element={<Page2 />} />
         <Route path="/stateparameter" element={<StateParameter />} />
         <Route path="/next" element={<NextPage />} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </BrowserRouter>
   );
