@@ -12,7 +12,7 @@ export const Home = memo(() => {
         <Link to="/page1">Page1に遷移</Link>
       </div>
       <div>
-        <Link to="/page2">Page2に遷移</Link>
+        <Link to="/page2/11">Page2に遷移</Link>
       </div>
     </>
   );
