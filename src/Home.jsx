@@ -1,5 +1,7 @@
 import { memo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { PrimaryButton } from './components/atoms/PrimaryButton';
+import { SecondaryButton } from './components/atoms/SecondaryButton';
 
 export const Home = memo(() => {
   console.log('-----Home------');
@@ -28,6 +30,13 @@ export const Home = memo(() => {
         </Link>
       </div>
       <button onClick={nextPage}>Next画面</button>
+
+      <hr />
+
+      <div>
+        <PrimaryButton>テスト1</PrimaryButton>
+        <SecondaryButton>テスト2</SecondaryButton>
+      </div>
     </>
   );
 });
