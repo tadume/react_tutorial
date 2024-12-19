@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { PrimaryButton } from './components/atoms/PrimaryButton';
-import { SecondaryButton } from './components/atoms/SecondaryButton';
+import { SearchInput } from '../src/components/molecules/SearchInput';
 
 export const Home = memo(() => {
   console.log('-----Home------');
@@ -34,8 +33,7 @@ export const Home = memo(() => {
       <hr />
 
       <div>
-        <PrimaryButton>テスト1</PrimaryButton>
-        <SecondaryButton>テスト2</SecondaryButton>
+        <SearchInput />
       </div>
     </>
   );
