@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SearchInput } from '../src/components/molecules/SearchInput';
+import { UserCard } from './components/organisms/user/UserCard';
 
 export const Home = memo(() => {
   console.log('-----Home------');
@@ -35,6 +36,10 @@ export const Home = memo(() => {
       <div>
         <SearchInput />
       </div>
+
+      <hr />
+
+      <UserCard />
     </>
   );
 });
