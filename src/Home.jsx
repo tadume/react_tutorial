@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SearchInput } from '../src/components/molecules/SearchInput';
 import { UserCard } from './components/organisms/user/UserCard';
+import { HeaderOnly } from './components/templates/HeaderOnly';
 
 export const Home = memo(() => {
   console.log('-----Home------');
@@ -16,37 +17,39 @@ export const Home = memo(() => {
 
   return (
     <>
-      <h1>Home画面</h1>
-      {/* 実施に遷移するために、リンクを記載する */}
-      <div>
-        <Link to="/page1">Page1に遷移</Link>
-      </div>
-      <div>
-        <Link to="/page2/11">Page2に遷移</Link>
-      </div>
-      <div>
-        <Link to="/stateparameter" state={{ data1: data1, data2: data2 }}>
-          StateParameter画面に遷移
-        </Link>
-      </div>
-      <button onClick={nextPage}>Next画面</button>
+      <HeaderOnly>
+        <h1>Home画面</h1>
+        {/* 実施に遷移するために、リンクを記載する */}
+        <div>
+          <Link to="/page1">Page1に遷移</Link>
+        </div>
+        <div>
+          <Link to="/page2/11">Page2に遷移</Link>
+        </div>
+        <div>
+          <Link to="/stateparameter" state={{ data1: data1, data2: data2 }}>
+            StateParameter画面に遷移
+          </Link>
+        </div>
+        <button onClick={nextPage}>Next画面</button>
 
-      <hr />
+        <hr />
 
-      <div>
-        <SearchInput />
-      </div>
+        <div>
+          <SearchInput />
+        </div>
 
-      <hr />
+        <hr />
 
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        <UserCard />
-      </div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <UserCard />
+        </div>
+      </HeaderOnly>
     </>
   );
 });
