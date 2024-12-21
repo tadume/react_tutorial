@@ -1,34 +1,49 @@
 import { memo } from 'react';
 import styled from '@emotion/styled';
+import { Card } from '../../atoms/div/Card';
+import { UserIconWithName } from '../../molecules/UserIconWithName';
 
 export const UserCard = memo(() => {
   /*
     ユーザ一人用のカードを作成する。
-    最初は、わかりやすいように雛形として、atoms, moleculesの分割はしないで作成する
   */
+
+  // 本来はAPIから取得したデータを使用するが、今回はオブジェクトとして既に取得しているとする
+  const user = {
+    img: 'https://source.unsplash.com/bIhpiQA009k',
+    name: '山田太郎',
+    mail: 'test@example.com',
+    tel: 'xxx-xxxx-xxxx',
+    company: {
+      name: 'xxx株式会社',
+    },
+    webSite: 'https://hogehoge.com',
+  };
+
   return (
-    <SContainer>
-      <img alt="プロフィール画像" />
-      <p>名前</p>
-      <dl>
+    <Card>
+      <UserIconWithName img={user.img} name={user.name} />
+      <SDl>
         <dt>メール</dt>
-        <dd>test@example.com</dd>
+        <dd>{user.mail}</dd>
         <dt>TEL</dt>
-        <dd>xxx-xxxx-xxxx</dd>
+        <dd>{user.tel}</dd>
         <dt>会社名</dt>
-        <dd>xxx株式会社</dd>
+        <dd>{user.company.name}</dd>
         <dt>WEB</dt>
-        <dd>https://hogehoge.com</dd>
-      </dl>
-    </SContainer>
+        <dd>{user.webSite}</dd>
+      </SDl>
+    </Card>
   );
 });
 
-const SContainer = styled.div`
-  min-width: 200px;
-  min-height: 200px;
-  width: 300px;
-  height: 300px;
-  border-radius: 5px;
-  border: 1px solid black;
+const SDl = styled.dl`
+  text-align: left;
+  dt {
+    float: left;
+  }
+  dd {
+    padding-left: 32px;
+    overflow-wrap: break-word;
+  }
 `;

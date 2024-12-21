@@ -39,7 +39,14 @@ export const Home = memo(() => {
 
       <hr />
 
-      <UserCard />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <UserCard />
+      </div>
     </>
   );
 });
