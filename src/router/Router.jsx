@@ -7,6 +7,8 @@ import { Page2 } from '../Page2';
 import { StateParameter } from '../StateParameter';
 import { NextPage } from '../NextPage';
 import { Page404 } from '../Page404';
+import { HeaderOnly } from '../components/templates/HeaderOnly';
+import { Users } from '../components/pages/Users';
 
 export const Router = memo(() => {
   return (
@@ -24,6 +26,15 @@ export const Router = memo(() => {
         <Route path="/stateparameter" element={<StateParameter />} />
         <Route path="/next" element={<NextPage />} />
         <Route path="*" element={<Page404 />} />
+
+        <Route
+          path="/users"
+          element={
+            <HeaderOnly>
+              <Users />
+            </HeaderOnly>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

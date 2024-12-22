@@ -3,22 +3,13 @@ import styled from '@emotion/styled';
 import { Card } from '../../atoms/div/Card';
 import { UserIconWithName } from '../../molecules/UserIconWithName';
 
-export const UserCard = memo(() => {
+export const UserCard = memo((props) => {
   /*
     ユーザ一人用のカードを作成する。
   */
+  console.log('----UserCard----');
 
-  // 本来はAPIから取得したデータを使用するが、今回はオブジェクトとして既に取得しているとする
-  const user = {
-    img: 'https://source.unsplash.com/bIhpiQA009k',
-    name: '山田太郎',
-    mail: 'test@example.com',
-    tel: 'xxx-xxxx-xxxx',
-    company: {
-      name: 'xxx株式会社',
-    },
-    webSite: 'https://hogehoge.com',
-  };
+  const { user } = props;
 
   return (
     <Card>
