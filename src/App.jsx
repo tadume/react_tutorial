@@ -1,11 +1,15 @@
 import { BrowserRouter } from 'react-router-dom';
 import { Router } from './router/Router';
-import { Link } from 'react-router-dom';
+import { UserProvider } from './providers/UserProvider';
 
 export const App = () => {
   return (
     <>
-      <Router />
+      <UserProvider>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </UserProvider>
     </>
   );
 };

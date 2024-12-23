@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useContext } from 'react';
 import { UserCard } from '../organisms/user/UserCard';
 import { SearchInput } from '../molecules/SearchInput';
 import styled from '@emotion/styled';
@@ -9,6 +9,9 @@ export const Users = memo(() => {
     pagesは、templateと一緒に、Router.jsxで直接レンダリングする
     ここで、templateを除くコンポーネントの組み合わせを行う
   */
+  console.log('--Users--');
+
+  // 管理者権限をstateとして保持させる
 
   // usersオブジェクトを取得
   const users = [...Array(10).keys()].map((value) => ({

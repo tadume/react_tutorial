@@ -7,6 +7,8 @@ export const Card = memo((props) => {
     なので、カードの中身をpropsで受け取る
     どこでも使えるカードにするので、カードのサイズは、外部の責務とする!!!!
   */
+  console.log('--Card--');
+
   const { children } = props;
 
   return <SContainer>{children}</SContainer>;

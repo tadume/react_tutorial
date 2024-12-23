@@ -2,6 +2,7 @@ import { memo } from 'react';
 import styled from '@emotion/styled';
 import { Card } from '../../atoms/div/Card';
 import { UserIconWithName } from '../../molecules/UserIconWithName';
+import { useLocation } from 'react-router-dom';
 
 export const UserCard = memo((props) => {
   /*
