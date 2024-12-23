@@ -2,6 +2,7 @@ import { memo, useCallback, useContext } from 'react';
 import { SecondaryButton } from '../atoms/button/SecondaryButton';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../providers/UserProvider';
+import axios from 'axios';
 
 export const Top = memo(() => {
   const navigate = useNavigate();
@@ -20,6 +21,13 @@ export const Top = memo(() => {
     navigate('/users');
   }, [userInfo]);
 
+  const onGetUsers = () => {
+    axios
+      .get('https://jsonplaceholder.typicode.com/users')
+      .then((result) => console.log(result.data))
+      .catch((error) => console.log(error.message));
+  };
+
   return (
     <>
       <div>
@@ -33,6 +41,7 @@ export const Top = memo(() => {
           一般ユーザ
         </SecondaryButton>
       </div>
+      <button onClick={onGetUsers}>一覧取得</button>
     </>
   );
 });
